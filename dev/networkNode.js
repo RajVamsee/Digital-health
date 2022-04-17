@@ -82,7 +82,8 @@ app.get('/mine', function(req, res) {
 			uri: pht.currentNodeUrl + '/transaction/broadcast',
 			method: 'POST',
 			body: {
-				amount: 12.5,
+				urlResource: "Mining reward",
+				amount: 10,
 				sender: "00",
 				recipient: nodeAddress
 			},
