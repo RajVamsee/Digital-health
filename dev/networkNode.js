@@ -2,14 +2,16 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const Blockchain = require('./blockchain');
+const Enc = require('./encryption');
 const { v1: uuid } = require('uuid');
 const port = process.argv[2];
 const rp = require('request-promise');
 
+
 const nodeAddress = uuid().split('-').join('');
 
 const pht = new Blockchain();
-
+const e = new Enc();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -262,9 +264,21 @@ app.get('/ui', function(req, res) {
 	res.sendFile('./ui/index.html', { root: __dirname });
 });
 
+app.get('/encrypt/:ipfshash', function(req, res){
+	const ipfshash = req.params.ipfshash;
+	const scrambled = e.getEncrypted(ipfshash);
+	res.json({
+		encryptedData: scrambled
+	});
+});
 
-
-
+app.get('/decrypt/:scrambled', function(req, res){
+	const scrambled = req.params.scrambled;
+	const unscrambled = e.getDecrypted(scrambled);
+	res.json({
+		decryptedData: unscrambled
+	});
+});
 
 app.listen(port, function() {
 	console.log(`Listening on port ${port}...`);
