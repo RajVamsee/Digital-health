@@ -67,11 +67,11 @@ Blockchain.prototype.chainIsValid=function(blockchain){
 		const blockhash=this.hashBlock(prevBlock['hash'],{transactions: currentBlock['transactions'],index: currentBlock['index']}, currentBlock['nonce'])
 
 		if(blockhash.substring(0,3) !== '000'){ 
-			// console.log("Yahan dikkat h !!");
+			
 			validChain=false;}
 
 		if(currentBlock['previousBlockHash']!==prevBlock['hash']){ 
-			// console.log("Nahi dikkat yahan h !!");
+			
 			validChain=false;}
 	};
 
@@ -81,7 +81,7 @@ Blockchain.prototype.chainIsValid=function(blockchain){
 	const correctHash=genesisBlock['hash']==='0';
 	const correctTransactions=genesisBlock['transactions'].length===0;
 	if(!correctHash || !correctNonce || !correctTransactions || !correctpreviousBlockHash) {validChain=false;};
-	// if(validChain==true) console.log("Koi dikkat nhi h");
+	
 	return validChain;
 };
 

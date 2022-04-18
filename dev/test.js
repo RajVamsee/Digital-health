@@ -4,7 +4,7 @@ const bc1= {
     "chain": [
     {
     "index": 1,
-    "timestamp": 1556036161876,
+    "timestamp": 1650293721300,
     "transactions": [],
     "nonce": 100,
     "hash": "0",
@@ -12,121 +12,75 @@ const bc1= {
     },
     {
     "index": 2,
-    "timestamp": 1556036234647,
-    "transactions": [],
-    "nonce": 13791,
-    "hash": "000510d13e973f97a7ab8517776d7c60281d0f0b2dc5786fbf4f73446201410c",
+    "timestamp": 1650293856812,
+    "transactions": [
+    {
+    "urlResource": "test",
+    "amount": 15,
+    "sender": "23439e30bf2211ec8aeea593773ed20a",
+    "reciepent": "b2cdae60bf2211ecb151aba5b14b7dc5",
+    "transactionId": "d6eba540bf2711ec8c8f3f09b8806814"
+    }
+    ],
+    "nonce": 2423,
+    "hash": "000f700da04548efd6c59e399319c943b43415eca77ee16a4931e8fad11f1a4b",
     "previousBlockHash": "0"
     },
     {
     "index": 3,
-    "timestamp": 1556036367673,
+    "timestamp": 1650293910436,
     "transactions": [
     {
-    "amount": 12.5,
-    "sender": "00",
-    "transactionId": "422037a065e311e9a4050dbd88eefc43"
-    },
-    {
+    "urlResource": "Mining reward",
     "amount": 10,
-    "sender": "AB",
-    "reciepent": "CD",
-    "transactionId": "7d9ccb4065e311e9a4050dbd88eefc43"
-    },
-    {
-    "amount": 20,
-    "sender": "AB",
-    "reciepent": "CD",
-    "transactionId": "824f7de065e311e9a4050dbd88eefc43"
+    "sender": "00",
+    "reciepent": "8e3069d0bf2711ec8c8f3f09b8806814",
+    "transactionId": "e29d6b80bf2711ec8c8f3f09b8806814"
     }
     ],
-    "nonce": 6622,
-    "hash": "000935072b2b82d9f948746cb46f143ddcaae52400e1b51d26f1165d0d38e5c8",
-    "previousBlockHash": "000510d13e973f97a7ab8517776d7c60281d0f0b2dc5786fbf4f73446201410c"
+    "nonce": 5393,
+    "hash": "00036a5accf1e685143d8c57b28746d237b1340b5de100a9022ac064731dca5e",
+    "previousBlockHash": "000f700da04548efd6c59e399319c943b43415eca77ee16a4931e8fad11f1a4b"
     },
     {
     "index": 4,
-    "timestamp": 1556036425016,
+    "timestamp": 1650294443634,
     "transactions": [
     {
-    "amount": 12.5,
+    "urlResource": "Mining reward",
+    "amount": 10,
     "sender": "00",
-    "transactionId": "9109540065e311e9a4050dbd88eefc43"
+    "reciepent": "91d61940bf2711eca1b68dfd04ffd6d7",
+    "transactionId": "02985ee0bf2811eca1b68dfd04ffd6d7"
     },
     {
-    "amount": 30,
-    "sender": "AB",
-    "reciepent": "CD",
-    "transactionId": "a25ce7d065e311e9a4050dbd88eefc43"
-    },
-    {
-    "amount": 40,
-    "sender": "AB",
-    "reciepent": "CD",
-    "transactionId": "a519bde065e311e9a4050dbd88eefc43"
-    },
-    {
-    "amount": 50,
-    "sender": "AB",
-    "reciepent": "CD",
-    "transactionId": "a87767d065e311e9a4050dbd88eefc43"
-    },
-    {
-    "amount": 60,
-    "sender": "AB",
-    "reciepent": "CD",
-    "transactionId": "adc60c5065e311e9a4050dbd88eefc43"
+    "urlResource": "60b1d404f19acfcf626343cea509008d8d57be227d652d7bbf6aab2a42c07a5d152d89d292107629274f685d154f715185dcdd9c764e87a70ae40d96e658d944592c00d9aae54e5bf8e71955445a8df5e782d060c4c930f4b55ac36e462121a5012d58c4a2ff11d40fb4dd4bc99de91725511136568414e6d6b804bbc56077af",
+    "amount": 15,
+    "sender": "8e3069d0bf2711ec8c8f3f09b8806814",
+    "reciepent": "91d61940bf2711eca1b68dfd04ffd6d7",
+    "transactionId": "2a336b60bf2911ec8c8f3f09b8806814"
     }
     ],
-    "nonce": 4243,
-    "hash": "00054185152b4b5474920cd01234d7f604cc6c44a53df93b22ca7b49becdfc40",
-    "previousBlockHash": "000935072b2b82d9f948746cb46f143ddcaae52400e1b51d26f1165d0d38e5c8"
-    },
-    {
-    "index": 5,
-    "timestamp": 1556036441721,
-    "transactions": [
-    {
-    "amount": 12.5,
-    "sender": "00",
-    "transactionId": "b337540065e311e9a4050dbd88eefc43"
-    }
-    ],
-    "nonce": 1778,
-    "hash": "000486ae9065c39f729e1e1931b67cb0b2ce330874b324a4e0c092ab4cabc20e",
-    "previousBlockHash": "00054185152b4b5474920cd01234d7f604cc6c44a53df93b22ca7b49becdfc40"
-    },
-    {
-    "index": 6,
-    "timestamp": 1556036447432,
-    "transactions": [
-    {
-    "amount": 12.5,
-    "sender": "00",
-    "transactionId": "bd2bd9e065e311e9a4050dbd88eefc43"
-    }
-    ],
-    "nonce": 4106,
-    "hash": "000d36d6d4254ce7da7edb72d8ca6be20462010a5a81f0387126df3c88b826b5",
-    "previousBlockHash": "000486ae9065c39f729e1e1931b67cb0b2ce330874b324a4e0c092ab4cabc20e"
+    "nonce": 5665,
+    "hash": "0005e6de787921ad2a0cb4fb00006aa1e38dcd114984b16ffb5698519dede89e",
+    "previousBlockHash": "00036a5accf1e685143d8c57b28746d237b1340b5de100a9022ac064731dca5e"
     }
     ],
     "pendingTransactions": [
     {
-    "amount": 12.5,
+    "urlResource": "Mining reward",
+    "amount": 10,
     "sender": "00",
-    "transactionId": "c093e41065e311e9a4050dbd88eefc43"
+    "reciepent": "91d61940bf2711eca1b68dfd04ffd6d7",
+    "transactionId": "406380f0bf2911eca1b68dfd04ffd6d7"
     }
     ],
-    "currentNodeUrl": "http://localhost:3001",
-    "networkNodes": []
+    "currentNodeUrl": "http://localhost:3004",
+    "networkNodes": [
+    "http://localhost:3002",
+    "http://localhost:3003",
+    "http://localhost:3001"
+    ]
     };
 
     console.log('Valid: ',bitcoin.chainIsValid(bc1.chain));
-// bitcoin.createNewBlock(3, 'EIUF4343BKN43J4334K', 'SDFJ34OIJ34NLN34I');
-// bitcoin.createNewTransaction(16103278,'Vaibhav','B10');
-// bitcoin.createNewBlock(3564, 'EIUF4343BeuieKN43J4334K', 'SDFJ3dso4OIJ34NLN34I');
-// bitcoin.createNewTransaction(16103338,'Prakhar','B10');
-// var non=bitcoin.proofOfWork(bitcoin.chain[1].hash,bitcoin.pendingTransactions);
-// console.log(bitcoin.hashBlock(bitcoin.chain[1].hash,bitcoin.pendingTransactions,non));
-// console.log(bitcoin);
