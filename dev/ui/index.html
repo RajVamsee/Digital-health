@@ -10,7 +10,7 @@
 		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
 	<script>
-		function encryptionFunction(a, b) {
+		/*function encryptionFunction(a, b) {
 			var myString = a + " " + b;
 			if (a.length === 0 || b.length === 0) {
 				alert("Please enter missing fields!!")
@@ -29,7 +29,7 @@
 			else {
 				document.getElementById("decryptionId").innerHTML = myString;
 			}
-		}
+		}*/
 	</script>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
@@ -44,18 +44,19 @@
 		<div class="row">
 			<div class="col-md-3 encryptionDiv">
 				<h5>Encryption</h5>
-				<form action="">
+				<form ng-submit="myEncrypt(iph)">
 					<label for="ipfshash">IPFS Hash:</label><br>
-					<input type="text" id="ipfshash" name="ipfshash" value="" placeholder="Enter IPFS Hash"><br><br>
+					<input type="text" id="ipfshash" name="ipfshash" value="ipfshashValue" placeholder="Enter IPFS Hash"
+						ng-model="iph" required><br><br>
 					<label for="publickey">Existing Public Keys:</label><br>
-					<select name="publickey" id="publickey">
+					<select name="publickey" id="publickey" required>
 						<option></option>
 						<option value="publickey.pem">publickey.pem</option>
 					</select>
 					<br><br>
-					<input type="button" value="Encrypt" onclick="encryptionFunction(ipfshash.value,publickey.value)">
+					<input type="submit" value="Encrypt"><br><br>
+					<p id="encryptionId" ng-if="encryptedString" style="overflow-y : scroll">{{encryptedString}}</p>
 				</form><br>
-				<p id="encryptionId">Encrypted String</p>
 			</div>
 			<div class="col-md-6">
 				<form ng-submit="search(searchValue)">
@@ -79,20 +80,19 @@
 			</div>
 			<div class="col-md-3 decryptionDiv">
 				<h5>Decryption</h5>
-				<form action="">
+				<form ng-submit="myDecrypt(st)">
 					<label for="scrambledtext">Scrambled Text:</label><br>
-					<input type="text" id="scrambledtext" name="scrambledtext" value=""
-						placeholder="Enter Scrambled Text">
+					<input type="text" id="scrambledtext" name="scrambledtext" value="scrambledtextValue"
+						ng-model="st" placeholder="Enter Scrambled Text" required>
 					<br><br>
 					<label for="privatekey">Existing Private Keys:</label><br>
-					<select name="privatekey" id="privatekey">
+					<select name="privatekey" id="privatekey" required>
 						<option></option>
 						<option value="privatekey.pem">privatekey.pem</option>
 					</select><br><br>
-					<input type="button" value="Decrypt"
-						onclick="decryptionFunction(scrambledtext.value,privatekey.value)">
+					<input type="submit" value="Decrypt"><br><br>
+					<p id="decryptionId" ng-if="decryptedString" style="overflow-y: scroll;">{{decryptedString}}</p>
 				</form><br>
-				<p id="decryptionId">Decrypted String</p>
 			</div>
 		</div>
 		<div class="row">
@@ -182,6 +182,8 @@
 			$scope.block = null;
 			$scope.transaction = null;
 			$scope.addressData = null;
+			$scope.encryptedString = null;
+			$scope.decryptedString = null;
 			$scope.initialSearchMade = false;
 
 			$scope.fetchBlock = function (blockHash) {
@@ -192,6 +194,22 @@
 						$scope.addressData = null;
 					});
 			};
+
+			$scope.fetchEncrypt = function (iph) {
+				$http.get(`/encrypt/${iph}`)
+					.then(response => {
+						$scope.encryptedString = response.data.encryptedData;
+						//console.log(iph);
+						//console.log($scope.encryptedString);
+					});
+			};
+
+			$scope.fetchDecrypt = function (st) {
+				$http.get(`/decrypt/${st}`)
+					.then(response => {
+						$scope.decryptedString = response.data.decryptedData;
+					});
+			}
 
 			$scope.fetchTransaction = function (transactionId) {
 				$http.get(`/transaction/${transactionId}`)
@@ -225,6 +243,15 @@
 					$scope.fetchAddressData(searchValue);
 				}
 			};
+
+			$scope.myEncrypt = function (iph) {
+				//console.log(iph);
+				$scope.fetchEncrypt(iph);
+			};
+
+			$scope.myDecrypt = function (st) {
+				$scope.fetchDecrypt(st);
+			}
 
 		});
 	</script>
@@ -306,8 +333,6 @@
 			color: red;
 		}
 	</style>
-
-
 </body>
 
 </html>
