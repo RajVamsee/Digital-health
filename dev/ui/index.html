@@ -9,6 +9,28 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
+	<script>
+		function encryptionFunction(a, b) {
+			var myString = a + " " + b;
+			if (a.length === 0 || b.length === 0) {
+				alert("Please enter missing fields!!")
+				document.getElementById("encryptionId").innerHTML = "Encrypted String";
+			}
+			else {
+				document.getElementById("encryptionId").innerHTML = myString;
+			}
+		}
+		function decryptionFunction(a, b) {
+			var myString = a + " " + b;
+			if (a.length === 0 || b.length == 0) {
+				alert("Plase enter missing fields!!")
+				document.getElementById("encryptionId").innerHTML = "Encrypted String";
+			}
+			else {
+				document.getElementById("decryptionId").innerHTML = myString;
+			}
+		}
+	</script>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 
@@ -31,8 +53,9 @@
 						<option value="publickey.pem">publickey.pem</option>
 					</select>
 					<br><br>
-					<input type="submit" value="Encrypt">
-				</form>
+					<input type="button" value="Encrypt" onclick="encryptionFunction(ipfshash.value,publickey.value)">
+				</form><br>
+				<p id="encryptionId">Encrypted String</p>
 			</div>
 			<div class="col-md-6">
 				<form ng-submit="search(searchValue)">
@@ -59,15 +82,17 @@
 				<form action="">
 					<label for="scrambledtext">Scrambled Text:</label><br>
 					<input type="text" id="scrambledtext" name="scrambledtext" value=""
-						placeholder="Enter Scrambled Text"><br><br>
+						placeholder="Enter Scrambled Text">
+					<br><br>
 					<label for="privatekey">Existing Private Keys:</label><br>
 					<select name="privatekey" id="privatekey">
 						<option></option>
 						<option value="privatekey.pem">privatekey.pem</option>
-					</select>
-					<br><br>
-					<input type="submit" value="Decrypt">
-				</form>
+					</select><br><br>
+					<input type="button" value="Decrypt"
+						onclick="decryptionFunction(scrambledtext.value,privatekey.value)">
+				</form><br>
+				<p id="decryptionId">Decrypted String</p>
 			</div>
 		</div>
 		<div class="row">
@@ -261,8 +286,24 @@
 			padding: 10px;
 			background-color: #F0F8FF;
 		}
-		h5{
+
+		h5 {
 			margin-left: 70px;
+		}
+
+		#encryptionId,
+		#decryptionId {
+			background-color: white;
+			border: black solid 2px;
+			padding: 5px;
+		}
+
+		#id1,
+		#id2,
+		#id3,
+		#id4 {
+			visibility: hidden;
+			color: red;
 		}
 	</style>
 
